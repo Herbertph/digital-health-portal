@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: health-backend
+  profiles:
+    active: postgres
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+security:
+  jwt:
+    secret: ${JWT_SECRET_BASE64:U29tZVN1cGVyU2VjcmV0S2V5U3VwZXI=}
+    expiration-minutes: 60
